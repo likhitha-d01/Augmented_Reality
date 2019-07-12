@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<!-- include A-Frame obviously -->
+<script src="https://aframe.io/releases/0.6.0/aframe.min.js"></script>
+<!-- include ar.js for A-Frame -->
+<script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+<body style='margin : 0px; overflow: hidden;'>
+  <a-scene  embedded
+  renderer='antialias: true;alpha: true; logarithmicDepthBuffer: true'
+  arjs='debugUIEnabled: false;patternRatio:0.5; sourceType: webcam; maxDetectionRate: 1;
+   detectionMode: mono_and_matrix; matrixCodeType: 4x4;colorManagement: true; precision: medium'>
+    <!-- create your content here. just a box for now -->
+    <a-entity position='0 0.25 1' scale='0.05 0.05 0.05' rotation="90 90 90" crossOrigin="anonymous" response-type="arraybuffer"
+    obj-model="obj:url(model/weld_torch.obj)"></a-entity>
+    <!-- for gltf model: instead of obj-model -> gltf-model -->
+    <!-- define a camera which will move according to the marker position -->
+    <a-marker-camera type='pattern' url='marker/test2.patt'></a-marker-camera>
+  </a-scene>
+</body>
+</html>
